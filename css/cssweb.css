@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+header {
+    background: #b57150;
+}
+.hero {
+    background: #ffe0cc;
+    padding: 50px 0;
+}
+.hero-img {
+    background: lightgrey;
+    min-height: 200px;
+}
+.card {
+    background: #fff3e6;
+    border-radius: 10px;
+}
+.carousel-item img {
+    width: 250px;
+    margin: auto;
+    border-radius: 10px;
+}
+.faq {
+    background: #f2f2f2;
+}
+.faq-placeholder {
+    background: lightgrey;
+    min-height: 300px;
+}
+.accordion-button {
+    background: #fff3e6;
+    border-radius: 5px !important;
+}
+.accordion-body {
+    background: #ffffff;
+    border-radius: 5px;
+}
+.contacte button {
+    background: #b57150;
+    border: none;
+}
+.contacte button:hover {
+    background: #a56347;
+}
+footer {
+    background: #333;
+    color: white;
+}
+.socials a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
