@@ -1,4 +1,4 @@
-ody {
+body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
@@ -20,11 +20,24 @@ header {
     margin-left: auto; /*Menú centrat  */
 }
 .hero {
-    background: #ffe0cc;
-    padding: 50px 0;
+    background: url('../fotosanimals/capçalera.jpg') no-repeat center center/cover;
+    padding: 100px 0; /* Ajusta el padding segons necessitats */
+    min-height: 100vh; /* Ocupa l'alçada completa de la pantalla */
+    display: flex;
+    align-items: center; /* Centra verticalment el contingut */
+    justify-content: center; /* Centra horitzontalment el contingut */
+    position: relative;
 }
-.hero-img {
-    min-height: 350px;
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Assegura que el contingut estigui per sobre del fons */
+}
+
+.hero-text {
+    color: white; /* Color del text perquè contrasti amb la imatge */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombra per millorar llegibilitat */
+    max-width: 600px; /* Limita l'amplada del text per a millor llegibilitat */
 }
 .card {
     background: #fff3e6;
