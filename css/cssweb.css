@@ -5,7 +5,7 @@ body {
 
 header {
     background: #b57150;
-    padding: 16px;
+    padding: 1rem 0; /* Padding base, Bootstrap ho gestiona responsivament */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -13,11 +13,10 @@ header {
 
 .navbar-brand {
     padding: 0;
-    margin-left: 0; /* Eliminat el marge mínim per centrar millor en mòbils */
 }
 
 .logo-img {
-    height: 50px; /* Reduït lleugerament per mòbils, però manté proporció */
+    height: 50px; /* Base; en mòbils es redueix amb classes si cal */
     width: auto;
 }
 
@@ -26,31 +25,21 @@ header {
 }
 
 .navbar-nav {
-    margin-left: auto; /* Menú centrat */
+    margin-left: auto;
 }
 
-/* Hero section - Millorat per mòbils */
+/* Hero - Sense alçada fixa; usa flex de Bootstrap */
 .hero {
     background: url('../fotosanimals/capçalera.jpg') no-repeat center center/cover;
-    padding: 60px 0; /* Reduït padding per mòbils (original 100px) */
-    min-height: 80vh; /* Reduït de 100vh per evitar scrolling excessiu en mòbils */
     display: flex;
     align-items: center;
-    justify-content: center;
     position: relative;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
+    min-height: 60vh; /* Mínim flexible; Bootstrap ajusta amb padding */
 }
 
 .hero-text {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    max-width: 90%; /* Canviat de 600px a percentatge per escalar en mòbils */
-    padding: 0 15px; /* Espai lateral per pantalles estretes */
-    font-size: 1.1rem; /* Base, s'ajustarà amb media queries */
 }
 
 .card {
@@ -58,26 +47,15 @@ header {
     border-radius: 10px;
 }
 
-/* Amics peluts - Carrusel responsiu */
+/* Carrusel - Confia en .img-fluid de Bootstrap */
 .carousel-item img {
-    max-width: 100%; /* Canviat de fixed 250px a max 100% per adaptar-se a la pantalla */
-    height: auto; /* Mantiene proporció */
     border-radius: 10px;
     margin: auto;
 }
 
-/* Preguntes freqüents */
+/* FAQ */
 .faq {
     background: #ffe0cc;
-}
-
-.faq-placeholder {
-    min-height: 100px;
-}
-
-.faq-placeholder img {
-    width: 100%; /* Imatge s'adapta al 100% en mòbils */
-    height: auto;
 }
 
 .accordion-button {
@@ -90,6 +68,7 @@ header {
     border-radius: 5px;
 }
 
+/* Contacte */
 .contacte button {
     background: #b57150;
     color: white;
@@ -100,11 +79,6 @@ header {
     background: #a56347;
 }
 
-.contacte form {
-    max-width: 100%; /* Canviat de 400px a 100% per pantalles petites */
-    padding: 0 15px; /* Espai lateral */
-}
-
 footer {
     background: #b57150;
     color: white;
@@ -112,100 +86,10 @@ footer {
 
 .socials a {
     color: white;
-    margin-right: 15px;
     text-decoration: none;
-    display: block; /* En mòbils, apila verticalment per espai */
-    margin-bottom: 5px; /* Espai entre enllaços */
 }
 
-/* Per al carrusel, corregeix els items actius duplicats */
+/* Carrusel fix */
 .carousel-item:not(.active) {
     display: none;
-}
-
-/* Media Queries per Responsivitat */
-
-/* Mòbils petits (ex: iPhone SE, < 576px) */
-@media (max-width: 575.98px) {
-    .hero {
-        padding: 40px 0; /* Encara més reduït */
-        min-height: 70vh;
-    }
-    
-    .hero-text {
-        font-size: 1rem; /* Text més petit per cabre */
-        text-align: center;
-    }
-    
-    .hero-text h2 {
-        font-size: 1.5rem; /* Títol més compacte */
-    }
-    
-    .hero-text p {
-        font-size: 0.9rem;
-    }
-    
-    .logo-img {
-        height: 40px; /* Logo més petit en mòbils */
-    }
-    
-    .navbar-nav .nav-link {
-        font-size: 0.9rem; /* Enllaços menú més petits */
-        padding: 0.5rem 0.25rem; /* Menys espai horitzontal */
-    }
-    
-    .card-body p {
-        font-size: 0.85rem; /* Text de cards més compacte */
-        line-height: 1.4;
-    }
-    
-    .carousel-caption p {
-        font-size: 0.8rem; /* Captions del carrusel més petits */
-        padding: 10px;
-    }
-    
-    .accordion-button {
-        font-size: 0.9rem;
-    }
-    
-    .socials {
-        justify-content: center !important; /* Centra socials en footer */
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .socials a {
-        margin-right: 0;
-        margin-bottom: 8px;
-    }
-    
-    footer .col-md-3 {
-        text-align: center; /* Tot centrat en mòbils */
-        margin-bottom: 15px;
-    }
-}
-
-/* Tablets (576px - 768px) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-    .hero-text {
-        max-width: 95%;
-    }
-    
-    .carousel-item img {
-        max-width: 80%; /* Una mica més gran que en mòbils petits */
-    }
-    
-    .socials {
-        justify-content: center;
-    }
-}
-
-/* General per tots els dispositius */
-.container {
-    padding-left: 15px;
-    padding-right: 15px; /* Assegura espais laterals en totes les seccions */
-}
-
-.row {
-    --bs-gutter-x: 1rem; /* Redueix gutter en Bootstrap per mòbils si cal */
 }
