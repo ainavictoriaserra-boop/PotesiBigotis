@@ -4,6 +4,10 @@ body {
 }
 header {
     background: #b57150;
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 .navbar-brand {
     padding: 0;
