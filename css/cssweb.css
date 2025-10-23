@@ -12,6 +12,7 @@ header {
 .navbar-brand {
     padding: 0;
     margin-left: 0.001%; /*Marge esquerra*/
+
 }
 .logo-img {
     height: 60px; /* Mida del logo  */
@@ -23,7 +24,16 @@ header {
 .navbar-nav {
     margin-left: auto; /*Menú centrat  */
     text-align: center;
-} 
+}
+.navbar-nav a {
+    color: #ffffff; /* Color base del text */
+    transition: color 0.3s ease; /* Transició suau */
+}
+
+.navbar-nav a:hover {
+    color: #ffe0cc; /* Color al fer hover */
+}
+
 .hero {
     background: url('../fotosanimals/capçalera.jpg') no-repeat center center/cover;
     padding: 100px 0; /* Ajusta el padding segons necessitats */
@@ -66,11 +76,99 @@ header {
     background: #fff3e6;
     border-radius: 10px;
 }
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
 
-/* Amics peluts - Estils inspirats en el dibuix (card rectangular amb icon i wavy text) */
+header {
+    background: #b57150;
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    padding: 0;
+    margin-left: 0.001%; /*Marge esquerra*/
+}
+
+.logo-img {
+    height: 60px; /* Mida del logo  */
+    width: auto;
+}
+
+.navbar {
+    padding: 0.5rem 0;
+}
+
+.navbar-nav {
+    margin-left: auto; /*Menú centrat  */
+    text-align: center;
+} 
+
+.hero {
+    background: url('../fotosanimals/capçalera.jpg') no-repeat center center/cover;
+    padding: 100px 0; /* Ajusta el padding segons necessitats */
+    min-height: 90vh; /* Mantenim l'alçada especificada */
+    display: flex;
+    align-items: center; /* Centra verticalment el contingut */
+    justify-content: center; /* Centra horitzontalment el contingut */
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Mantenim l'opacitat especificada */
+    z-index: 0; /* Darrere del contingut */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Assegura que el contingut estigui per sobre del fons */
+    display: flex;
+    justify-content: center; /* Centra el contingut dins de .hero-content */
+    width: 100%; /* Assegura que ocupi tot l'ample disponible */
+}
+
+.hero-text {
+    color: white; /* Color del text perquè contrasti amb la imatge */
+    max-width: 600px; /* Limita l'amplada del text per a millor llegibilitat */
+    text-align: center; /* Centra el text horitzontalment */
+    margin: auto; /* Centra el contenidor .hero-text dins del flexbox */
+}
+
+.hero-text h2 {
+    font-size: 3rem; /* Mida més gran per al títol */
+}
+
+.hero-text p {
+    font-size: 1.2rem; /* Mida més petita per al paràgraf */
+}
+
+.card {
+    background: #fff3e6;
+    border-radius: 10px;
+}
+/* Estils específics per a les targetes de la secció #queFem */
+.card-title {
+    color: #b57150; /* Color del títol canviat a blanc */
+    position: relative; /* Per posicionar la franja */
+    display: inline-block; /* Perquè la franja s'adapti a l'ample del text */
+    margin-bottom: 15px; /* Espai per la franja */
+}
+
+/* Amics peluts */
 .carousel {
-    max-width: 500px;
+    max-width: 1000px; /* Més ample per tot el carrusel */
     margin: 0 auto;
+    position: relative;
 }
 
 .carousel-item {
@@ -78,50 +176,29 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 450px; /* Més compacte com el dibuix */
-    padding: 1rem;
+    min-height: 400px;
+    padding: 0.5rem;
 }
 
 .carousel-card {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 500px;
     background: #fff3e6;
-    border: 2px solid #b57150; /* Bord suau com el dibuix */
-    border-radius: 12px; /* Arrodoniment com el teu rectangle */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
-}
-
-.foto-zone {
-    position: relative;
-    width: 100%;
-    height: 250px; /* Alçada fixa per la zona foto, com el dibuix */
-    overflow: hidden;
 }
 
 .carousel-img {
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: cover;
 }
 
-.foto-label {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #333;
-    z-index: 2;
-}
-
 .carousel-info {
-    padding: 1rem;
+    padding: 0.5rem; 
     text-align: center;
     flex-grow: 1;
     display: flex;
@@ -130,93 +207,56 @@ header {
     justify-content: space-around;
 }
 
-.animal-icon {
-    margin: 0.5rem 0;
-}
-
-.animal-icon svg {
-    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1)); /* Ombra suau per fer-ho "dibuixat" */
+.carousel-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #b57150;
+    margin: 0.25rem 0;
+    text-transform: uppercase;
 }
 
 .carousel-name {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 0.5rem 0;
-}
-
-.wavy-text {
-    width: 100%;
-    margin: 0.5rem 0;
-}
-
-.carousel-desc {
     font-size: 1rem;
-    color: #666;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
+    color: #333;
+    margin: 0.25rem 0;
 }
 
-.wavy-lines {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    margin-top: 0.5rem;
+/* Fletxes del carrusel*/
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.wave {
-    display: inline-block;
-    font-size: 0.8rem;
-    color: #999;
-    font-style: italic;
-    animation: wave 2s infinite; /* Animació suau per ondulació */
-}
-
-@keyframes wave {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-3px); }
-}
-
-.carousel-traits {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.carousel-traits li {
-    font-size: 0.9rem;
-    color: #555;
-    padding-left: 1rem;
-    position: relative;
-}
-
-.carousel-traits li::before {
-    content: "•";
-    color: #b57150;
-    position: absolute;
-    left: 0;
-}
-
-/* Responsive: en mòbil, més compacte */
+/* Responsive: en mòbil, adapta */
 @media (max-width: 767px) {
+    .carousel {
+        max-width: 100%;
+    }
+    
     .carousel-card {
-        max-width: 350px;
+        max-width: 95%;
         border-radius: 8px;
     }
     
-    .foto-zone {
-        height: 200px;
+    .carousel-img {
+        height: 150px; /* Imatge més baixa en mòbil */
     }
     
-    .animal-icon svg {
-        width: 50px;
-        height: 50px;
+    .carousel-info {
+        padding: 0.4rem;
+        min-height: 80px; /* Encara més estreta en mòbil */
     }
     
     .carousel-name {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 8%; /* Fletxes més amples en mòbil per touch */
     }
 }
 
@@ -224,45 +264,55 @@ header {
 .faq {
     background: #ffe0cc;
 }
+
 .faq-placeholder {
     min-height: 100px;
     display: flex;
     justify-content: center; /* Center the image horizontally */
-    align-items: right; /* Center the image vertically */
+    align-items: center; /* Corregit: center per centrar verticalment */
 }
+
 .faq-placeholder img {
     max-height: 450px; /* Optional: Limit the maximum height to prevent oversized images */
     object-fit: cover; /* Ensure the image covers the area without distortion */
     border-radius: 5px; /* Optional: Match the rounded style of other elements */
 }
+
 @media (max-width: 767px) {
     .faq-placeholder img {
         margin-top: 1.5rem; /* Add margin above the FAQ image on mobile screens */
     }
 }
+
 .accordion-button {
     background: #fff3e6;
     border-radius: 5px !important;
 }
+
 .accordion-body {
     background: #ffffff;
     border-radius: 5px;
 }
+
 .contacte button {
     background: #b57150;
     color: white;
     border: none;
 }
+
 .contacte button:hover {
     background: #a56347;
 }
+
 .socials i {
     font-size: 1.1rem;
 }
+
 footer {
     background: #b57150;
     color: white;
 }
+
 /* Per al carrusel, corregeix els items actius duplicats */
 .carousel-item:not(.active) {
     display: none;
