@@ -256,14 +256,12 @@ header {
 .contacte button:hover {
     background: #a56347;
 }
+.socials i {
+    font-size: 1.1rem;
+}
 footer {
     background: #b57150;
     color: white;
-}
-.socials a {
-    color: white;
-    margin-right: 15px;
-    text-decoration: none;
 }
 /* Per al carrusel, corregeix els items actius duplicats */
 .carousel-item:not(.active) {
