@@ -66,12 +66,160 @@ header {
     background: #fff3e6;
     border-radius: 10px;
 }
-/*Amics peluts*/
-.carousel-item img {
-    width: 250px;
-    margin: auto;
-    border-radius: 10px;
+
+/* Amics peluts - Estils inspirats en el dibuix (card rectangular amb icon i wavy text) */
+.carousel {
+    max-width: 500px;
+    margin: 0 auto;
 }
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 450px; /* Més compacte com el dibuix */
+    padding: 1rem;
+}
+
+.carousel-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    background: #fff3e6;
+    border: 2px solid #b57150; /* Bord suau com el dibuix */
+    border-radius: 12px; /* Arrodoniment com el teu rectangle */
+    overflow: hidden;
+    position: relative;
+}
+
+.foto-zone {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Alçada fixa per la zona foto, com el dibuix */
+    overflow: hidden;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.foto-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333;
+    z-index: 2;
+}
+
+.carousel-info {
+    padding: 1rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.animal-icon {
+    margin: 0.5rem 0;
+}
+
+.animal-icon svg {
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1)); /* Ombra suau per fer-ho "dibuixat" */
+}
+
+.carousel-name {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.wavy-text {
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.carousel-desc {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.wavy-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+.wave {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+    animation: wave 2s infinite; /* Animació suau per ondulació */
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+.carousel-traits {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.carousel-traits li {
+    font-size: 0.9rem;
+    color: #555;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.carousel-traits li::before {
+    content: "•";
+    color: #b57150;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive: en mòbil, més compacte */
+@media (max-width: 767px) {
+    .carousel-card {
+        max-width: 350px;
+        border-radius: 8px;
+    }
+    
+    .foto-zone {
+        height: 200px;
+    }
+    
+    .animal-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .carousel-name {
+        font-size: 1.3rem;
+    }
+}
+
 /*Preguntes freqüents*/
 .faq {
     background: #ffe0cc;
