@@ -2,94 +2,122 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
-
 header {
     background: #b57150;
-    padding: 1rem 0; /* Padding base, Bootstrap ho gestiona responsivament */
+    padding: 16px;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-
 .navbar-brand {
     padding: 0;
+    margin-left: 0.001%; /*Marge esquerra*/
 }
-
 .logo-img {
-    height: 50px; /* Base; en mòbils es redueix amb classes si cal */
+    height: 60px; /* Mida del logo  */
     width: auto;
 }
-
 .navbar {
     padding: 0.5rem 0;
 }
-
 .navbar-nav {
-    margin-left: auto;
-}
-
-/* Hero - Sense alçada fixa; usa flex de Bootstrap */
+    margin-left: auto; /*Menú centrat  */
+    text-align: center;
+} 
 .hero {
     background: url('../fotosanimals/capçalera.jpg') no-repeat center center/cover;
+    padding: 100px 0; /* Ajusta el padding segons necessitats */
+    min-height: 90vh; /* Mantenim l'alçada especificada */
     display: flex;
-    align-items: center;
+    align-items: center; /* Centra verticalment el contingut */
+    justify-content: center; /* Centra horitzontalment el contingut */
     position: relative;
-    min-height: 60vh; /* Mínim flexible; Bootstrap ajusta amb padding */
 }
-
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Mantenim l'opacitat especificada */
+    z-index: 0; /* Darrere del contingut */
+}
+.hero-content {
+    position: relative;
+    z-index: 1; /* Assegura que el contingut estigui per sobre del fons */
+    display: flex;
+    justify-content: center; /* Centra el contingut dins de .hero-content */
+    width: 100%; /* Assegura que ocupi tot l'ample disponible */
+}
 .hero-text {
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: white; /* Color del text perquè contrasti amb la imatge */
+    max-width: 600px; /* Limita l'amplada del text per a millor llegibilitat */
+    text-align: center; /* Centra el text horitzontalment */
+    margin: auto; /* Centra el contenidor .hero-text dins del flexbox */
 }
-
+.hero-text h2 {
+    font-size: 3rem; /* Mida més gran per al títol */
+}
+.hero-text p {
+    font-size: 1.2rem; /* Mida més petita per al paràgraf */
+}
 .card {
     background: #fff3e6;
     border-radius: 10px;
 }
-
-/* Carrusel - Confia en .img-fluid de Bootstrap */
+/*Amics peluts*/
 .carousel-item img {
-    border-radius: 10px;
+    width: 250px;
     margin: auto;
+    border-radius: 10px;
 }
-
-/* FAQ */
+/*Preguntes freqüents*/
 .faq {
     background: #ffe0cc;
 }
-
+.faq-placeholder {
+    min-height: 100px;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: right; /* Center the image vertically */
+}
+.faq-placeholder img {
+    max-height: 450px; /* Optional: Limit the maximum height to prevent oversized images */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 5px; /* Optional: Match the rounded style of other elements */
+}
+@media (max-width: 767px) {
+    .faq-placeholder img {
+        margin-top: 1.5rem; /* Add margin above the FAQ image on mobile screens */
+    }
+}
 .accordion-button {
     background: #fff3e6;
     border-radius: 5px !important;
 }
-
 .accordion-body {
     background: #ffffff;
     border-radius: 5px;
 }
-
-/* Contacte */
 .contacte button {
     background: #b57150;
     color: white;
     border: none;
 }
-
 .contacte button:hover {
     background: #a56347;
 }
-
 footer {
     background: #b57150;
     color: white;
 }
-
 .socials a {
     color: white;
+    margin-right: 15px;
     text-decoration: none;
 }
-
-/* Carrusel fix */
+/* Per al carrusel, corregeix els items actius duplicats */
 .carousel-item:not(.active) {
     display: none;
 }
