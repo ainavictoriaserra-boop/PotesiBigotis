@@ -61,7 +61,7 @@ header {
     width: 100%; /* Assegura que ocupi tot l'ample disponible */
 }
 .hero-text {
-    color: red; /* Color del text perquè contrasti amb la imatge */
+    color: white; /* Color del text perquè contrasti amb la imatge */
     max-width: 600px; /* Limita l'amplada del text per a millor llegibilitat */
     text-align: center; /* Centra el text horitzontalment */
     margin: auto; /* Centra el contenidor .hero-text dins del flexbox */
