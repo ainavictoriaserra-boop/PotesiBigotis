@@ -59,17 +59,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Animació marquee per la franja superior
     const marqueeEl = document.querySelector('.marquee');
-    if (marqueeEl) {
-        const marqueeContent = marqueeEl.querySelector('.marquee-content');
-        const textWidth = marqueeContent.scrollWidth / 2; // Mitat perquè està duplicat
-        const speed = 50; // Velocitat en px/s (ajusta segons necessitis)
+if (marqueeEl) {
+    const marqueeContent = marqueeEl.querySelector('.marquee-content');
+    const textWidth = marqueeContent.scrollWidth / 2; // Mitat per duplicats
+    const speed = 25; // Velocitat lenta per mòbils/tauletes (ajusta: 15-40 px/s)
 
-        let marqueeTl = gsap.to(marqueeContent, {
-            xPercent: -50,
-            duration: textWidth / speed,
-            ease: "none",
-            repeat: -1
-        });
+    console.log('Marquee iniciat: Amplada text =', textWidth, 'Velocitat =', speed); // Debug: mira a consola
+
+    let marqueeTl = gsap.to(marqueeContent, {
+        xPercent: -50,
+        duration: textWidth / speed,
+        ease: "none",
+        repeat: -1,
+        force3D: true  // Millora rendiment en mòbils (hardware acceleration)
+    });
+
+    // Reinicia l'animació després d'un petit delay (per mòbils lents)
+    setTimeout(() => {
+        marqueeTl.restart();
+        console.log('Marquee reiniciat per mòbils/touch'); // Debug
+    }, 500);
+
+    marqueeTl.play();
 
         // Responsive: pausa en mòbil (max-width: 767px, igual que el menú Bootstrap)
         const mm = gsap.matchMedia();

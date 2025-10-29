@@ -363,14 +363,26 @@ footer {
 }
 
 /* Responsive per la franja: en mòbil, text estàtic centrat */
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
     .top-strip {
-        justify-content: center;
-        font-size: 0.8rem;
+        height: 28px;  /* Una mica més baixa */
+        font-size: 0.75rem;  /* Text més petit */
+        overflow: hidden;  /* Assegura tall net */
     }
 
     .marquee-content {
-        animation: none !important; /* Desactiva qualsevol animació CSS si n'hi ha */
-        transform: none !important;
+        will-change: transform;  /* Millora rendiment (ja ho tens, però reforça) */
+        backface-visibility: hidden;  /* Evita glitches en touch */
+    }
+
+    .marquee-content span {
+        padding-right: 1rem;  /* Menys espai per animació més ràpida/compacta */
+        display: inline-block;  /* Millor alineació en mòbils */
+    }
+
+    /* Pausa al touch/hover per estalviar bateria (opcional) */
+    .top-strip:active .marquee-content,
+    .top-strip:hover .marquee-content {
+        animation-play-state: paused;
     }
 }
