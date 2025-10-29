@@ -57,35 +57,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Animació marquee per la franja superior
+    // Animació marquee per la franja superior (CORREGIT: DRETA, sense espai blanc)
     const marqueeEl = document.querySelector('.marquee');
-if (marqueeEl) {
-    const marqueeContent = marqueeEl.querySelector('.marquee-content');
-    const textWidth = marqueeContent.scrollWidth / 2; // Mitat per duplicats
-    const speed = 40; // Velocitat lenta per mòbils/tauletes (ajusta: 15-40 px/s)
+    if (marqueeEl) {
+        const marqueeContent = marqueeEl.querySelector('.marquee-content');
+        const containerWidth = marqueeEl.clientWidth; // Amplada visible del contenidor (per precisió)
+        const totalWidth = marqueeContent.scrollWidth; // Amplada total del text (amb duplicats)
+        const speed = 60; // px/s (ajusta si vols més/menys ràpid)
 
-    console.log('Marquee iniciat: Amplada text =', textWidth, 'Velocitat =', speed); // Debug: mira a consola
+        console.log('Marquee iniciat: Amplada contenidor=', containerWidth, 'Total text=', totalWidth, 'Velocitat=', speed); // Debug
 
-    let marqueeTl = gsap.to(marqueeContent, {
-        xPercent: 50,
-        duration: textWidth / speed,
-        ease: "none",
-        repeat: -1,
-        force3D: true  // Millora rendiment en mòbils (hardware acceleration)
-    });
+        // Posició inicial: desplaçat a l'esquerra perquè el duplicat entri des de la dreta quan es mou a dreta
+        gsap.set(marqueeContent, { x: -containerWidth });
 
-    // Reinicia l'animació després d'un petit delay (per mòbils lents)
-    setTimeout(() => {
-        marqueeTl.restart();
-        console.log('Marquee reiniciat per mòbils/touch'); // Debug
-    }, 500);
+        let marqueeTl = gsap.to(marqueeContent, {
+            x: 0,  // Mou a DRETA fins a posició 0 (text entra des de l'esquerra, surt per dreta)
+            duration: containerWidth / speed,  // Temps basat en l'ample visible / velocitat (cicle perfecte)
+            ease: "none",
+            repeat: -1,
+            force3D: true  // Millora rendiment en mòbils
+        });
 
-    marqueeTl.play();
+        // Reinicia després de delay (per mòbils lents)
+        setTimeout(() => {
+            marqueeTl.restart();
+            console.log('Marquee reiniciat'); // Debug
+        }, 500);
+
+        marqueeTl.play();
+
+        // Responsive: ajusta estil sense pausar (igual velocitat a tot arreu)
+        const mm = gsap.matchMedia();  // ← AFEGEIX AQUESTA LÍNYA (faltava!)
+        mm.add("(max-width: 767px)", () => {
+            marqueeTl.play();  // Assegura actiu
+            gsap.set(marqueeContent, { x: -containerWidth });  // Reinicia posició inicial per dreta
+            document.querySelector('.top-strip').style.justifyContent = 'center';
+            // Opcional: ajusta velocitat si vols més lenta en mòbils (comenta si no)
+            // marqueeTl.duration(containerWidth / 40);  // Ex: 40 px/s més lent
+        });
 
         mm.add("(min-width: 768px)", () => {
             marqueeTl.play();
-            gsap.set(marqueeContent, { xPercent: 0 }); // Reinicia posició
+            gsap.set(marqueeContent, { x: -containerWidth });  // Reinicia posició inicial
             document.querySelector('.top-strip').style.justifyContent = 'flex-start';
+            // Restaura velocitat original si vas ajustar a mòbils
+            marqueeTl.duration(containerWidth / speed);
         });
     }
 });
