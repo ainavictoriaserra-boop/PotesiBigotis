@@ -2,25 +2,17 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
-header {
-    background: #b57150;
-    padding: 16px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
 
 /* Ajusta el header per no solapar */
 header {
-    padding-top: 46px; /* 30px strip + 16px original padding */
+    padding-top: 46px; 
 }
 .top-strip {
-    margin-top: -20px;  /* Ajusta el valor: -10px per pujar 10px, -20px per més */
-    /* Els altres estils existents... */
+    margin-top: -20px;  /* Ajusta el valor per pujar i baixar*/
 }
 .navbar-brand {
     padding: 0;
-    margin-left: 0.001%; /*Marge esquerra*/
+    margin-left: 0.001%; 
 
 }
 .logo-img {
@@ -44,14 +36,14 @@ header {
 }
 
 .navbar-nav .nav-link {
-    padding-top: 45px;           /* Augmenta el padding superior per baixar el text */
-    padding-bottom: 0;           /* Manté l'equilibri sense ampliar la barra */
-    line-height: 1.2;            /* Ajusta l'alçada de línia per centrar millor */
+    padding-top: 45px; /* Augmenta el padding superior per baixar el text */
+    padding-bottom: 0;           
+    line-height: 1.2;            
 }
 
 .hero {
     background: url('../fotosanimals/capçalera.jpg') no-repeat center center/cover;
-    padding: 100px 0; /* Ajusta el padding segons necessitats */
+    padding: 100px 0; 
     min-height: 90vh; /* Mantenim l'alçada especificada */
     display: flex;
     align-items: center; /* Centra verticalment el contingut */
@@ -65,8 +57,8 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Mantenim l'opacitat especificada */
-    z-index: 0; /* Darrere del contingut */
+    background: rgba(0, 0, 0, 0.3); 
+    z-index: 0; 
 }
 .hero-content {
     position: relative;
@@ -87,15 +79,6 @@ header {
 .hero-text p {
     font-size: 1.2rem; /* Mida més petita per al paràgraf */
 }
-.card {
-    background: #fff3e6;
-    border-radius: 10px;
-}
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
 header {
     background: #b57150;
     padding: 16px;
@@ -104,76 +87,14 @@ header {
     z-index: 1000;
 }
 
-.navbar-brand {
-    padding: 0;
-    margin-left: 0.001%; /*Marge esquerra*/
-}
-
-.logo-img {
-    height: 60px; /* Mida del logo  */
-    width: auto;
-}
-
-.navbar {
-    padding: 0.5rem 0;
-}
-
-.navbar-nav {
-    margin-left: auto; /*Menú centrat  */
-    text-align: center;
-} 
-
-.hero {
-    background: url('../fotosanimals/capçalera.jpg') no-repeat center center/cover;
-    padding: 100px 0; /* Ajusta el padding segons necessitats */
-    min-height: 90vh; /* Mantenim l'alçada especificada */
-    display: flex;
-    align-items: center; /* Centra verticalment el contingut */
-    justify-content: center; /* Centra horitzontalment el contingut */
-    position: relative;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Mantenim l'opacitat especificada */
-    z-index: 0; /* Darrere del contingut */
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1; /* Assegura que el contingut estigui per sobre del fons */
-    display: flex;
-    justify-content: center; /* Centra el contingut dins de .hero-content */
-    width: 100%; /* Assegura que ocupi tot l'ample disponible */
-}
-
-.hero-text {
-    color: white; /* Color del text perquè contrasti amb la imatge */
-    max-width: 600px; /* Limita l'amplada del text per a millor llegibilitat */
-    text-align: center; /* Centra el text horitzontalment */
-    margin: auto; /* Centra el contenidor .hero-text dins del flexbox */
-}
-
-.hero-text h2 {
-    font-size: 3rem; /* Mida més gran per al títol */
-}
-
-.hero-text p {
-    font-size: 1.2rem; /* Mida més petita per al paràgraf */
-}
-
+/*Què fem'*/
 .card {
     background: #fff3e6;
     border-radius: 10px;
 }
-/* Estils específics per a les targetes de la secció #queFem */
+
 .card-title {
-    color: #b57150; /* Color del títol canviat a blanc */
+    color: #b57150; 
     position: relative; /* Per posicionar la franja */
     display: inline-block; /* Perquè la franja s'adapti a l'ample del text */
     margin-bottom: 15px; /* Espai per la franja */
@@ -236,6 +157,11 @@ header {
     margin: 0.25rem 0;
 }
 
+/* Per al carrusel, corregeix els items actius duplicats */
+.carousel-item:not(.active) {
+    display: none;
+}
+
 /* Fletxes del carrusel*/
 .carousel-control-prev,
 .carousel-control-next {
@@ -283,22 +209,23 @@ header {
 .faq-placeholder {
     min-height: 100px;
     display: flex;
-    justify-content: center; /* Center the image horizontally */
-    align-items: center; /* Corregit: center per centrar verticalment */
+    justify-content: center; /* Centrar horitzontalment */
+    align-items: center; /* Centrar verticalment */
 }
 
 .faq-placeholder img {
-    max-height: 450px; /* Optional: Limit the maximum height to prevent oversized images */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
-    border-radius: 5px; /* Optional: Match the rounded style of other elements */
+    max-height: 450px; /* Limit de tamany per imatge */
+    object-fit: cover; 
+    border-radius: 5px; 
 }
 
 @media (max-width: 767px) {
     .faq-placeholder img {
-        margin-top: 1.5rem; /* Add margin above the FAQ image on mobile screens */
+        margin-top: 1.5rem; /* Afegeix marge davall la imatge de les faq en versio reduida */
     }
 }
 
+/*Contacte*/
 .accordion-button {
     background: #fff3e6;
     border-radius: 5px !important;
@@ -319,6 +246,7 @@ header {
     background: #a56347;
 }
 
+/*Footer*/
 .socials i {
     font-size: 1.1rem;
 }
@@ -326,11 +254,6 @@ header {
 footer {
     background: #b57150;
     color: white;
-}
-
-/* Per al carrusel, corregeix els items actius duplicats */
-.carousel-item:not(.active) {
-    display: none;
 }
 
 /* Franja superior amb marquee */
@@ -365,13 +288,13 @@ footer {
 /* Responsive per la franja: en mòbil, text estàtic centrat */
 @media (max-width: 1024px) {
     .top-strip {
-        height: 28px;  /* Una mica més baixa */
-        font-size: 0.75rem;  /* Text més petit */
+        height: 28px;  /* Distància del marge superior */
+        font-size: 0.75rem;  /* Mida del text */
         overflow: hidden;  /* Assegura tall net */
     }
 
     .marquee-content {
-        will-change: transform;  /* Millora rendiment (ja ho tens, però reforça) */
+        will-change: transform;  /* reforçament per al rendiment */
         backface-visibility: hidden;  /* Evita glitches en touch */
     }
 
@@ -380,9 +303,9 @@ footer {
         display: inline-block;  /* Millor alineació en mòbils */
     }
 
-    /* Pausa al touch/hover per estalviar bateria (opcional) */
+    /* Pausa al touch/hover per estalviar bateria (opcional) 
     .top-strip:active .marquee-content,
     .top-strip:hover .marquee-content {
         animation-play-state: paused;
-    }
+    }*/
 }
