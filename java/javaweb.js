@@ -82,14 +82,6 @@ if (marqueeEl) {
 
     marqueeTl.play();
 
-        // Responsive: pausa en mòbil (max-width: 767px, igual que el menú Bootstrap)
-        const mm = gsap.matchMedia();
-        mm.add("(max-width: 767px)", () => {
-            marqueeTl.pause();
-            gsap.set(marqueeContent, { xPercent: 0 }); // Centra el text
-            document.querySelector('.top-strip').style.justifyContent = 'center';
-        });
-
         mm.add("(min-width: 768px)", () => {
             marqueeTl.play();
             gsap.set(marqueeContent, { xPercent: 0 }); // Reinicia posició
