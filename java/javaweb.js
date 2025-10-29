@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', function() {
 if (marqueeEl) {
     const marqueeContent = marqueeEl.querySelector('.marquee-content');
     const textWidth = marqueeContent.scrollWidth / 2; // Mitat per duplicats
-    const speed = 25; // Velocitat lenta per mòbils/tauletes (ajusta: 15-40 px/s)
+    const speed = 40; // Velocitat lenta per mòbils/tauletes (ajusta: 15-40 px/s)
 
     console.log('Marquee iniciat: Amplada text =', textWidth, 'Velocitat =', speed); // Debug: mira a consola
 
     let marqueeTl = gsap.to(marqueeContent, {
-        xPercent: -50,
+        xPercent: 50,
         duration: textWidth / speed,
         ease: "none",
         repeat: -1,
