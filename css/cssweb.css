@@ -302,10 +302,4 @@ footer {
         padding-right: 1rem;  /* Menys espai per animació més ràpida/compacta */
         display: inline-block;  /* Millor alineació en mòbils */
     }
-
-    /* Pausa al touch/hover per estalviar bateria (opcional) 
-    .top-strip:active .marquee-content,
-    .top-strip:hover .marquee-content {
-        animation-play-state: paused;
-    }*/
 }

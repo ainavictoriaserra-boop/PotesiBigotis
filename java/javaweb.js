@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM carregat! GSAP version:', gsap ? gsap.version : 'NO CARREGAT');
 
-    
     // Animació del menú responsive amb GSAP
     const navbarNav = document.getElementById('navbarNav');
     if (navbarNav) {
@@ -57,22 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Animació marquee per la franja superior (CORREGIT: DRETA, sense espai blanc)
+    // Animació marquee per la franja superior 
     const marqueeEl = document.querySelector('.marquee');
     if (marqueeEl) {
         const marqueeContent = marqueeEl.querySelector('.marquee-content');
-        const containerWidth = marqueeEl.clientWidth; // Amplada visible del contenidor (per precisió)
+        const containerWidth = marqueeEl.clientWidth; // Amplada visible del contenidor 
         const totalWidth = marqueeContent.scrollWidth; // Amplada total del text (amb duplicats)
-        const speed = 60; // px/s (ajusta si vols més/menys ràpid)
+        const speed = 60; // px/s (rapidesa)
 
         console.log('Marquee iniciat: Amplada contenidor=', containerWidth, 'Total text=', totalWidth, 'Velocitat=', speed); // Debug
 
-        // Posició inicial: desplaçat a l'esquerra perquè el duplicat entri des de la dreta quan es mou a dreta
+        // Posició inicial
         gsap.set(marqueeContent, { x: -containerWidth });
 
         let marqueeTl = gsap.to(marqueeContent, {
-            x: 0,  // Mou a DRETA fins a posició 0 (text entra des de l'esquerra, surt per dreta)
-            duration: containerWidth / speed,  // Temps basat en l'ample visible / velocitat (cicle perfecte)
+            x: 0,  // Mou a DRETA fins a posició 0 
+            duration: containerWidth / speed,  // Temps basat en l'ample visible / velocitat 
             ease: "none",
             repeat: -1,
             force3D: true  // Millora rendiment en mòbils
@@ -86,22 +85,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         marqueeTl.play();
 
-        // Responsive: ajusta estil sense pausar (igual velocitat a tot arreu)
-        const mm = gsap.matchMedia();  // ← AFEGEIX AQUESTA LÍNYA (faltava!)
+        // Responsive: ajusta estil sense pausar
+        const mm = gsap.matchMedia();  
         mm.add("(max-width: 767px)", () => {
             marqueeTl.play();  // Assegura actiu
             gsap.set(marqueeContent, { x: -containerWidth });  // Reinicia posició inicial per dreta
             document.querySelector('.top-strip').style.justifyContent = 'center';
-            // Opcional: ajusta velocitat si vols més lenta en mòbils (comenta si no)
-            // marqueeTl.duration(containerWidth / 40);  // Ex: 40 px/s més lent
         });
 
         mm.add("(min-width: 768px)", () => {
             marqueeTl.play();
             gsap.set(marqueeContent, { x: -containerWidth });  // Reinicia posició inicial
             document.querySelector('.top-strip').style.justifyContent = 'flex-start';
-            // Restaura velocitat original si vas ajustar a mòbils
-            marqueeTl.duration(containerWidth / speed);
+            marqueeTl.duration(containerWidth / speed);// Restaura velocitat original si vas ajustar a mòbils
         });
     }
 });
