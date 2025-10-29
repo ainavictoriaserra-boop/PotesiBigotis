@@ -9,6 +9,15 @@ header {
     top: 0;
     z-index: 1000;
 }
+
+/* Ajusta el header per no solapar */
+header {
+    padding-top: 46px; /* 30px strip + 16px original padding */
+}
+.top-strip {
+    margin-top: -20px;  /* Ajusta el valor: -10px per pujar 10px, -20px per més */
+    /* Els altres estils existents... */
+}
 .navbar-brand {
     padding: 0;
     margin-left: 0.001%; /*Marge esquerra*/
@@ -316,4 +325,46 @@ footer {
 /* Per al carrusel, corregeix els items actius duplicats */
 .carousel-item:not(.active) {
     display: none;
+}
+
+/* Franja superior amb marquee */
+.top-strip {
+    background: #fff3e6;
+    color: #b57150;
+    font-size: 0.875rem;
+    height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    font-weight: bold;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+}
+
+.marquee-content {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.marquee-content span {
+    padding-right: 2rem; /* Espai entre duplicats per fluïdesa */
+}
+
+/* Responsive per la franja: en mòbil, text estàtic centrat */
+@media (max-width: 767px) {
+    .top-strip {
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+
+    .marquee-content {
+        animation: none !important; /* Desactiva qualsevol animació CSS si n'hi ha */
+        transform: none !important;
+    }
 }
